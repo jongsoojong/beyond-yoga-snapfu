@@ -19,11 +19,7 @@
 		"prepare": "husky install"
 	},
 	"searchspring": {
-		"siteId": {
-			"t02200": {
-				"name": "beyond-yoga.com"
-			}
-		},
+		"siteId": "t02200",
 		"framework": "preact",
 		"updates": [
 			"all"

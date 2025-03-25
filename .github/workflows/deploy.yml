@@ -21,7 +21,7 @@ jobs:
         with:
           # required
           repository: ${{ env.GITHUB_REPOSITORY }}
-          secretKey: PyeTG6UN6derMMIX5GgZhxOMHjLp4KpS
+          secretKey: ${{ secrets.WEBSITE_SECRET_KEY_T02200 }}
           secrets: ${{ toJSON(secrets) }}
           aws-access-key-id: ${{ secrets.SNAPFU_AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.SNAPFU_AWS_SECRET_ACCESS_KEY }}

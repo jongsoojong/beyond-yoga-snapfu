@@ -21,7 +21,6 @@ export const SortBy = withController(
 							selectedOption && selectedOption.url.go();
 						}}
 					>
-						<option value="default">Default</option>
 						{sorting.options.map((option) => (
 							<option value={option.value} selected={option.value === sorting.current.value}>
 								{option.label}

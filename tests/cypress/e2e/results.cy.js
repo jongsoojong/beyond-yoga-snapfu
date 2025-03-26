@@ -19,7 +19,7 @@ const config = {
 	selectors: {
 		sidebar: {
 			facetToggle: '', // button to open facet container
-			facetWrapper: '.ss__facet', // facet wrapper
+			facetWrapper: '', // facet wrapper
 			facetTitle: '.ss__facet__header', // facet title, should contain facet.label innerText
 			facetCollapseButton: '.ss__facet__header', // facet collapse button, should contain onClick to toggle collapse
 			facetOpen: '.ss__dropdown--open', // facet open state class
@@ -32,7 +32,7 @@ const config = {
 			removeAllFacetsButton: '.ss__filter-summary__clear-all', // filter summary clear all button
 		},
 		sortBy: {
-			native: '.ss__sort--select', // sort by <select> element (if applicable)
+			native: '', // sort by <select> element (if applicable)
 		},
 		pagination: {
 			infinite: false,
@@ -256,33 +256,33 @@ config?.pages?.forEach((page, _i) => {
 				});
 			});
 
-			// describe('Sort By', () => {
-			// 	it('Can sort by all options', function () {
-			// 		if (!config?.selectors?.sortBy?.native) this.skip();
+			describe('Sort By', () => {
+				it('Can sort by all options', function () {
+					if (!config?.selectors?.sortBy?.native) this.skip();
 
-			// 		cy.window().scrollTo('top', { ensureScrollable: false });
+					cy.window().scrollTo('top', { ensureScrollable: false });
 
-			// 		cy.get(config.selectors.sortBy?.native)
-			// 			.should('exist')
-			// 			.find('> option')
-			// 			.each((el, index) => {
-			// 				const optionIndexToSelect = index;
-			// 				cy.get(config.selectors.sortBy?.native)
-			// 					.find('> option')
-			// 					.should('have.length.gt', optionIndexToSelect)
-			// 					.eq(optionIndexToSelect)
-			// 					.then((element) => {
-			// 						cy.get(config.selectors.sortBy?.native).select(element.val(), { force: true });
-			// 					});
-			// 				cy.snapController().then(({ store }) => {
-			// 					const activeOption = store.sorting.options[optionIndexToSelect];
-			// 					expect(activeOption.active).to.equal(true);
-			// 					expect(store.sorting.current.field).to.equal(activeOption.field);
-			// 					expect(store.sorting.current.direction).to.equal(activeOption.direction);
-			// 				});
-			// 			});
-			// 	});
-			// });
+					cy.get(config.selectors.sortBy?.native)
+						.should('exist')
+						.find('> option')
+						.each((el, index) => {
+							const optionIndexToSelect = index;
+							cy.get(config.selectors.sortBy?.native)
+								.find('> option')
+								.should('have.length.gt', optionIndexToSelect)
+								.eq(optionIndexToSelect)
+								.then((element) => {
+									cy.get(config.selectors.sortBy?.native).select(element.val(), { force: true });
+								});
+							cy.snapController().then(({ store }) => {
+								const activeOption = store.sorting.options[optionIndexToSelect];
+								expect(activeOption.active).to.equal(true);
+								expect(store.sorting.current.field).to.equal(activeOption.field);
+								expect(store.sorting.current.direction).to.equal(activeOption.direction);
+							});
+						});
+				});
+			});
 
 			describe('Refinements', () => {
 				it('has correct titles', function () {

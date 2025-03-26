@@ -14,6 +14,7 @@ export const SortBy = withController(
 
 					<select
 						name="ss__sort--select"
+						className="ss__sort--select"
 						id="ss__sort--select"
 						onChange={(e) => {
 							const selectedOption = sorting.options.filter((option) => option.value == e.target.value).pop();

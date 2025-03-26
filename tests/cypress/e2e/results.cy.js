@@ -32,7 +32,7 @@ const config = {
 			removeAllFacetsButton: '.ss__filter-summary__clear-all', // filter summary clear all button
 		},
 		sortBy: {
-			native: 'select#ss__sort--select', // sort by <select> element (if applicable)
+			native: 'select #ss__sort--select', // sort by <select> element (if applicable)
 		},
 		pagination: {
 			infinite: false,

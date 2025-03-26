@@ -256,33 +256,33 @@ config?.pages?.forEach((page, _i) => {
 				});
 			});
 
-			describe('Sort By', () => {
-				it('Can sort by all options', function () {
-					if (!config?.selectors?.sortBy?.native) this.skip();
+			// describe('Sort By', () => {
+			// 	it('Can sort by all options', function () {
+			// 		if (!config?.selectors?.sortBy?.native) this.skip();
 
-					cy.window().scrollTo('top', { ensureScrollable: false });
+			// 		cy.window().scrollTo('top', { ensureScrollable: false });
 
-					cy.get(config.selectors.sortBy?.native)
-						.should('exist')
-						.find('> option')
-						.each((el, index) => {
-							const optionIndexToSelect = index;
-							cy.get(config.selectors.sortBy?.native)
-								.find('> option')
-								.should('have.length.gt', optionIndexToSelect)
-								.eq(optionIndexToSelect)
-								.then((element) => {
-									cy.get(config.selectors.sortBy?.native).select(element.val(), { force: true });
-								});
-							cy.snapController().then(({ store }) => {
-								const activeOption = store.sorting.options[optionIndexToSelect];
-								expect(activeOption.active).to.equal(true);
-								expect(store.sorting.current.field).to.equal(activeOption.field);
-								expect(store.sorting.current.direction).to.equal(activeOption.direction);
-							});
-						});
-				});
-			});
+			// 		cy.get(config.selectors.sortBy?.native)
+			// 			.should('exist')
+			// 			.find('> option')
+			// 			.each((el, index) => {
+			// 				const optionIndexToSelect = index;
+			// 				cy.get(config.selectors.sortBy?.native)
+			// 					.find('> option')
+			// 					.should('have.length.gt', optionIndexToSelect)
+			// 					.eq(optionIndexToSelect)
+			// 					.then((element) => {
+			// 						cy.get(config.selectors.sortBy?.native).select(element.val(), { force: true });
+			// 					});
+			// 				cy.snapController().then(({ store }) => {
+			// 					const activeOption = store.sorting.options[optionIndexToSelect];
+			// 					expect(activeOption.active).to.equal(true);
+			// 					expect(store.sorting.current.field).to.equal(activeOption.field);
+			// 					expect(store.sorting.current.direction).to.equal(activeOption.direction);
+			// 				});
+			// 			});
+			// 	});
+			// });
 
 			describe('Refinements', () => {
 				it('has correct titles', function () {

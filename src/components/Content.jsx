@@ -38,7 +38,7 @@ export const Content = observer((props) => {
 								</Slideout>
 							)}
 
-							{/* <SortBy /> */}
+							<SortBy />
 
 							<Results results={store.results}></Results>
 

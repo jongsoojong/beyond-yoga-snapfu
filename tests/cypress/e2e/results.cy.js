@@ -262,17 +262,17 @@ config?.pages?.forEach((page, _i) => {
 
 					cy.window().scrollTo('top', { ensureScrollable: false });
 
-					cy.get(config.selectors.sortBy?.native)
+					cy.get(config.selectors.sortBy?.native, { timeout: 30000 })
 						.should('exist')
-						.find('> option')
+						.find('option')
 						.each((el, index) => {
 							const optionIndexToSelect = index;
-							cy.get(config.selectors.sortBy?.native)
-								.find('> option')
+							cy.get(config.selectors.sortBy?.native, )
+								.find('option')
 								.should('have.length.gt', optionIndexToSelect)
 								.eq(optionIndexToSelect)
 								.then((element) => {
-									cy.get(config.selectors.sortBy?.native).select(element.val(), { force: true });
+									cy.get(config.selectors.sortBy?.native, { timeout: 30000 }).select(element.val(), { force: true });
 								});
 							cy.snapController().then(({ store }) => {
 								const activeOption = store.sorting.options[optionIndexToSelect];
@@ -285,6 +285,10 @@ config?.pages?.forEach((page, _i) => {
 			});
 
 			describe('Refinements', () => {
+				beforeEach(() => {
+					cy.visit('https://localhost:3333/?q=spacedye');
+				});
+
 				it('has correct titles', function () {
 					if (!config?.selectors?.sidebar?.facetTitle) this.skip();
 

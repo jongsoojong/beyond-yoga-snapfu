@@ -9,12 +9,8 @@ export const Results = withController(
 
 		const isMobile = useMediaQuery('(max-width: 767px)');
 
-		results.map((result) => {
-			console.log('result')
-		})
-
 		return (
-			<div className="ss__results" style={{ display: 'grid', gap: '20px', gridTemplateColumns: `repeat(3, 1fr)` }}>
+			<div className="ss__results" style={{ display: 'grid', gap: '20px', gridTemplateColumns: `repeat(${isMobile ? 2 : 4}, 1fr)` }}>
 				{results.map((result) => (
 					<>
 						{{

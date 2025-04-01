@@ -54,6 +54,7 @@ const config = {
 					id: 'search',
 					plugins: [[plugin]],
 				},
+				query: '',
 				targeters: [
 					{
 						selector: '#searchspring-sidebar',

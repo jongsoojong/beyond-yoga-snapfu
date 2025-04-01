@@ -19,7 +19,7 @@ const config = {
 	selectors: {
 		sidebar: {
 			facetToggle: '', // button to open facet container
-			facetWrapper: '', // facet wrapper
+			facetWrapper: '.ss__facet', // facet wrapper
 			facetTitle: '.ss__facet__header', // facet title, should contain facet.label innerText
 			facetCollapseButton: '.ss__facet__header', // facet collapse button, should contain onClick to toggle collapse
 			facetOpen: '.ss__dropdown--open', // facet open state class
@@ -32,7 +32,7 @@ const config = {
 			removeAllFacetsButton: '.ss__filter-summary__clear-all', // filter summary clear all button
 		},
 		sortBy: {
-			native: '', // sort by <select> element (if applicable)
+			native: 'select#ss__sort--select', // sort by <select> element (if applicable)
 		},
 		pagination: {
 			infinite: false,

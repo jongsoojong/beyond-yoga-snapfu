@@ -29,7 +29,7 @@ jobs:
           aws-s3-bucket-name: ${{secrets.SNAPFU_AWS_BUCKET}}
           # optional
           NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
-          GITHUB_BOT_TOKEN: ${{ secrets.MACHINE_TOKEN }}
+          GITHUB_BOT_TOKEN: ${{ secrets.MY_BOT_TOKEN }}
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
